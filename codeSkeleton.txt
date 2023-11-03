@@ -11,8 +11,9 @@ wiki/web/routes.py:
             //Accepts a User object as an argument to update its password which is contained in the data attribute.
 
 wiki/web/forms.py:
-    class RegisterForm(extends LoginForm)
-        //I'm extending LoginForm because I want to keep the validation functionality. If this violates SRP or causes any other issues, I will create an interface and remove the inheritance between RegisterForm and LoginForm
+    class RegisterForm(extends FlaskForm)
+        //RegisterForm will keep the validation features of LoginForm, which I will change to be an interface
+        //In addition to the methods currently associated with LoginForm, RegisterForm has fields for current and new passwords
 wiki/web/templates:
     register.html(url, form, page)
         //Jinja template that renders the page for users to register their account
