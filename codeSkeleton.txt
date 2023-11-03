@@ -1,0 +1,23 @@
+Kenneth Barth - Registration/password update code skeleton by directory
+
+
+
+wiki/web/routes.py:
+    @bp.route('/register', methods=['GET', 'POST'])
+        def register()
+            //No arguments, this route renders the page for the user to register a new account
+    @bp.route('/changepassword', methods=['GET', 'POST'])
+        def change(User)
+            //Accepts a User object as an argument to update its password which is contained in the data attribute.
+
+wiki/web/forms.py:
+    class RegisterForm(extends LoginForm)
+        //I'm extending LoginForm because I want to keep the validation functionality. If this violates SRP or causes any other issues, I will create an interface and remove the inheritance between RegisterForm and LoginForm
+wiki/web/templates:
+    register.html(url, form, page)
+        //Jinja template that renders the page for users to register their account
+    changePassword.html(url, form, page)
+        //Jinja template that renders the page for users to change their password
+
+wiki/web/user.py:
+    //nothing in this file will need to be changed but it should be noted that the registration feature will use the User.add_user() method, and the password change feature will use the User.update(), both of which call the UserManager.write() API to add the user to the JSON file.  
